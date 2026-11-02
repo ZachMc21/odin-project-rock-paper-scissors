@@ -12,4 +12,11 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
+//console.log(getComputerChoice());
+
+function getHumanChoice() {
+    let humanChoice = window.prompt("Enter your choice:");
+    return humanChoice;
+}
+
+console.log(getHumanChoice());
