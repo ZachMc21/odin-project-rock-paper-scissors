@@ -1,6 +1,29 @@
 
-humanScore = 0;
-computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
+
+function playGame() {
+    let numRounds = window.prompt("How many rounds would you like to play?");
+    let currentRound = 0;
+
+    while(currentRound<numRounds) {
+        let humanChoice = getHumanChoice();
+        console.log("Human choice: " + humanChoice);
+
+        let computerChoice = getComputerChoice();
+        console.log("Computer choice: " + computerChoice);
+
+        playRound(humanChoice, computerChoice);
+        currentRound += 1;
+    }
+}
+
+playGame();
+
+function getHumanChoice() {
+    let humanChoice = window.prompt("Enter your choice:");
+    return humanChoice;
+}
 
 function getComputerChoice() {
     randomVal = Math.random() * 3;
@@ -14,17 +37,6 @@ function getComputerChoice() {
         return "scissors";
     }
 }
-
-function getHumanChoice() {
-    let humanChoice = window.prompt("Enter your choice:");
-    return humanChoice;
-}
-
-let humanChoice = getHumanChoice();
-console.log("Human choice: " + humanChoice);
-
-let computerChoice = getComputerChoice();
-console.log("Computer choice: " + computerChoice);
 
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
@@ -67,7 +79,4 @@ function playRound(humanChoice, computerChoice) {
         console.log("Invalid choice.");
     }
     console.log("Current Score:\t H: " + humanScore + "\tC: " + computerScore);
-
 }
-
-playRound(humanChoice, computerChoice);
